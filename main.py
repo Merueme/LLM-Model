@@ -48,9 +48,9 @@ def vectorize_sentence(sentence, model, max_len=300):
         vectorized.append(np.zeros(model.vector_size))
     return np.array(vectorized, dtype=np.float32)
 
-wrd2vec_resume = Word2Vec.load('D:/YNOV/M1/NLP/Projet/Code python good/word2vec.model')
-encoder_model = load_model('D:/YNOV/M1/NLP/Projet/Code python good/encoder_model.keras')
-decoder_model = load_model('D:/YNOV/M1/NLP/Projet/Code python good/decoder_model.keras')
+wrd2vec_resume = Word2Vec.load('./model/word2vec.model')
+encoder_model = load_model('./model/encoder_model.keras')
+decoder_model = load_model('./model/decoder_model.keras')
 
 print(type(wrd2vec_resume))
 print("--------------------------------------")
@@ -77,20 +77,20 @@ def decode_sequence(input_seq, max_len=30):
 
     return ' '.join(decoded_sentence)
 
-with open('D:/YNOV/M1/NLP/Projet/Code python good/tfidfVectorizer - TFIDF.pkl', 'rb') as f:
+with open('./model/tfidfVectorizer - TFIDF.pkl', 'rb') as f:
     vectorizer_ML = pickle.load(f)
 
-with open('D:/YNOV/M1/NLP/Projet/Code python good/modelPredictGenre - TFIDF.pkl', 'rb') as f:
+with open('./model/modelPredictGenre - TFIDF.pkl', 'rb') as f:
     model_ML = pickle.load(f)
 
 genres = ['Action', 'Adventure', 'Boys\' Love', 'Comedy', 'Crime', 'Drama', 'Fantasy', 'Girls\' Love', 'Historical', 'Horror', 'Isekai','Magical Girls', 'Mecha', 'Medical', 'Mystery', 'Philosophical','Psychological', 'Romance', 'Sci-Fi', 'Slice of Life', 'Sports','Superhero', 'Thriller', 'Tragedy', 'Wuxia']
 
-with open('D:/YNOV/M1/NLP/Projet/Code python good/tokenizer_Word2Vec_Genre.pkl', 'rb') as f:
+with open('./model/tokenizer_Word2Vec_Genre.pkl', 'rb') as f:
     tokenizer_genreDL = pickle.load(f)
     
-model_genre_DL = load_model('D:/YNOV/M1/NLP/Projet/Code python good/modelPredictGenre - Word2Vec.keras')
+model_genre_DL = load_model('.:model/modelPredictGenre - Word2Vec.keras')
 
-model_resume_DL = load_model('D:/YNOV/M1/NLP/Projet/Code python good/Resume_Word2Vec_Model.keras')
+model_resume_DL = load_model('./model/Resume_Word2Vec_Model.keras')
 
 
 def check_request(event=None):
