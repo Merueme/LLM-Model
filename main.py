@@ -88,7 +88,7 @@ genres = ['Action', 'Adventure', 'Boys\' Love', 'Comedy', 'Crime', 'Drama', 'Fan
 with open('./model/tokenizer_Word2Vec_Genre.pkl', 'rb') as f:
     tokenizer_genreDL = pickle.load(f)
     
-model_genre_DL = load_model('.:model/modelPredictGenre - Word2Vec.keras')
+model_genre_DL = load_model('./model/modelPredictGenre - Word2Vec.keras')
 
 model_resume_DL = load_model('./model/Resume_Word2Vec_Model.keras')
 
