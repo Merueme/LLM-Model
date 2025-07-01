@@ -116,4 +116,4 @@ if __name__ == "__main__":
 
 
         df.to_csv("D:/YNOV/M1/NLP/Projet/DataSetMangaGenre.csv", index=False)
-        print("✅ Dataset saved as DataSetMangaGenre.csv")
+        print("Dataset saved")
