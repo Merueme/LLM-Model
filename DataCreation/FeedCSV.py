@@ -7,7 +7,7 @@ from sklearn.preprocessing import MultiLabelBinarizer
 BASE_URL = "https://api.mangadex.org"
 LIMIT = 100
 LANGUAGES = ["en"]
-CONTENT_RATINGS = ["safe", "suggestive", "erotica", "pornographic"]
+CONTENT_RATINGS = ["safe", "suggestive"]
 DEMOGRAPHICS = ["shounen", "shoujo", "josei", "seinen"]
 STATUSES = ["ongoing", "completed", "hiatus", "cancelled"]
 
