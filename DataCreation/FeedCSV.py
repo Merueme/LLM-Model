@@ -78,11 +78,11 @@ def get_manga_data():
                             })
 
                         offset += LIMIT
-                        time.sleep(0.5)  # Avoid hammering the server
+                        time.sleep(0.5) 
 
                     except requests.exceptions.RequestException as e:
                         print(f"Request failed: {e} — Skipping combination.")
-                        break  # Skip to next status-demo-rating combo
+                        break 
 
     return manga_info_list
 
@@ -97,7 +97,7 @@ if __name__ == "__main__":
 
     print(df.head())
 
-    # Cleanup
+    
     df = df[df['description'].str.strip().astype(bool)]
     df = df[df['genres'].map(lambda g: len(g) > 0)]
     print(f"Total manga after filtering: {len(df)}")
@@ -105,7 +105,7 @@ if __name__ == "__main__":
     if df.empty:
         print("Warning: Final dataset is empty. No file saved.")
     else:
-        # Encode genres
+        
         mlb = MultiLabelBinarizer()
         genre_encoded = mlb.fit_transform(df['genres'])
         genre_df = pd.DataFrame(genre_encoded, columns=mlb.classes_)
